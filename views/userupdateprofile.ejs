@@ -1,0 +1,100 @@
+<%- include('./partials/head.ejs')%>
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light"  >
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo01" style="background-color: #33c49f;">
+        
+        <h5 style="padding-left:20px ;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+          </svg> Welcome <%= user.fname%> <%= user.lname%></h5><br><br>
+         
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <li class="nav-item active" style="padding-left:700px ;">
+            <h5><a class="nav-link" href="/createblog/<%= user._id%>" style="padding-left:5px ;" ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
+                <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
+              </svg> create blog</a></h5>
+        </li>
+
+          <li class="nav-item active" style="padding-left:50px ;">
+              <h5><a class="nav-link" href="/user/blogs/<%= user._id%>" style="padding-left:5px ;" ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+              </svg> Edit blog</a></h5>
+          </li>
+        
+          <li class="nav-item" style="margin-left:80px  ;">
+            <h5><a class="nav-link" href="/homepage/<%=user._id%>"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M2 13.5V7h1v6.5a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5V7h1v6.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5zm11-11V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"/>
+              <path fill-rule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z"/>
+            </svg> Home </a></h5>
+          </li>
+        <li class="nav-item" style="margin-left:200px  ;">
+            <h5><a class="nav-link"  href="/logout/<%= user._id%>"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-left" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0v2z"/>
+                <path fill-rule="evenodd" d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z"/>
+              </svg> logout </a></h5>
+        </li>
+      </ul>
+    </div>
+    </div>
+  </nav>
+
+
+
+<div class="body">
+
+
+                
+    <br><br><br>
+    <div class="text-center">
+        <h1 class="pageTitle">Update Profile</h1>
+    </div>
+
+<div class="container">
+
+<form action="/user/update/<%=user._id%>" method="post">
+     <br>
+     
+     <% if(joiError) { %>
+         
+      <div class="alert alert-danger" style="color: red;" role="alert">
+        <%= joiError.error.message%>
+        </div>
+ 
+    <% } %>
+    <br>
+    <div  class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">First Name</label>
+        <input type="text" class="form-control" id="fname" placeholder="First Name" name="fname" value="<%=user.fname%>" required>
+    </div>
+    <div  class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Last Name</label>
+        <input type="text" class="form-control" id="lname" placeholder="Last Name" name="lname" value="<%=user.lname%>" required>
+    </div>
+    <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Description</label>
+        <input type="text" class="form-control" id="description" placeholder="Last Name" name="description" value="<%=user.description%>" required>
+    </div>
+             
+   
+    <div  class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Phone Number</label>
+        <input type="text" class="form-control" id="phone" placeholder="Phone" name="phone" value="<%=user.phone%>" required>
+    </div>
+    
+    <br>
+   <button class="btn btn-warning" type="submit">Save</button>
+
+</form>
+</div>
+<br><br><br><br><br>
+
+
+</div>
+
+</body>
+</html>

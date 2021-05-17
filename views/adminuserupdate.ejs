@@ -1,0 +1,84 @@
+<%- include('./partials/head.ejs')%>
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light"  >
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo01" style="background-color: #9062da;">
+        
+        
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+
+        <li class="nav-item active" style="margin-left:1300px  ;">
+            <h5><a class="nav-link" href="/admin"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M2 13.5V7h1v6.5a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5V7h1v6.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5zm11-11V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"/>
+                <path fill-rule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z"/>
+              </svg> Admin Home</a></h5>
+        </li>
+        
+
+        <li class="nav-item" >
+            <h5><a class="nav-link" href="/loginadmin" style="padding-left:50px ;" ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-left" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0v2z"/>
+                <path fill-rule="evenodd" d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z"/>
+              </svg> logout </a></h5>
+        </li>
+        
+    </ul>
+</div>
+</nav>
+
+
+
+<div class="body">
+
+
+                
+
+    <div class="text-center">
+        <h1 class="pageTitleAdmin">Update User</h1>
+    </div>
+
+<div class="container">
+
+<form action="/admin/users/update/<%=user._id%>" method="post">
+     
+    <br>
+    <% if(joiError) { %>
+         
+        <div class="alert alert-danger" style="color: red;" role="alert">
+          <%= joiError.error.message%>
+          </div>
+   
+  <% } %>
+    <br>
+    <div  class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">First Name</label>
+        <input type="text" class="form-control" id="fname" placeholder="First Name" name="fname" value="<%=user.fname%>" required>
+    </div>
+    <div  class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Last Name</label>
+        <input type="text" class="form-control" id="lname" placeholder="Last Name" name="lname" value="<%=user.lname%>" required>
+    </div>
+    <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Description</label>
+        <input type="text" class="form-control" id="description" placeholder="Last Name" name="description" value="<%=user.description%>" required>
+    </div>
+            
+    
+    <div  class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Phone Number</label>
+        <input type="text" class="form-control" id="phone" placeholder="Phone" name="phone" value="<%=user.phone%>" required>
+    </div>
+    
+    <br>
+    <button class="btn btn-warning" type="submit">Save</button>
+
+</form>
+</div>
+
+
+</div>
+</body>
+</html>
