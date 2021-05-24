@@ -16,7 +16,7 @@ const { error } = require('console');
 const { invalid } = require('joi');
 
 //////////upload image
-//storage
+//storage  
 const storage = multer.diskStorage({
     destination: './public/images/',
     
